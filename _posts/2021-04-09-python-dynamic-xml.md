@@ -33,11 +33,8 @@ Lets look at very simple example
 
 ```python
 # ConfigFile.py
-
-from xml.etree import etree
-
 class ConfigFile:
-    def __init__(self, pathToFile):
+    def __init__(self, path_to_xml_file):
         self.parameters = {}
 
         '''
@@ -58,7 +55,7 @@ class ConfigFile:
     def runtime_data_path(self):
         return self.parameters.get(
             'runtimeDataPath',
-            '/path/to/runtime/data'
+            '/default/path/to/runtime/data'
         )
 
     @runtime_data_path.setter
@@ -68,7 +65,6 @@ class ConfigFile:
 
 ```python
 # main.py
-
 from Config import ConfigFile
 
 config = ConfigFile('/path/to/config')
@@ -80,13 +76,13 @@ initialize_server(config.timeout)
 
 Lets breakdown what's going on
 - There exists "ConfigFile.xml" which describes parameters to control our script
-- There exists "ConfigFile.xsd" which describes the allowed format of the "ConfigFile.xml"
+- There exists "ConfigFile.xsd" which describes the allowed format of the "ConfigFile" type
 - There exists "ConfigFile.py" which has a class that gives the rest of our code easy access to config file data
 
 Here's what I hate about this pattern
 - If a property of the .xsd needs to be changed for any reason, changes to the source code are almost always needed
-- It may not be obvious, but we are defining the definition of the "ConfigFile.xml" in two locations: "ConfigFile.xsd"
-and "ConfigFile.py".  They are tightly coupled because they both reflect the actual definition of "ConfigFile.xml"
+- It may not be obvious, but we are defining the definition of the "ConfigFile" type in two locations: "ConfigFile.xsd"
+and "ConfigFile.py".  They are tightly coupled because they both reflect the actual definition of the "ConfigFile" type,
 albeit in different file formats.
 
 You can imagine how tedious this becomes on codebases that have hundreds of different XML file types.  Our coding
@@ -161,7 +157,7 @@ root.c = 10
 print(root.c)
 
 # this will raise
-print (xmlDrootata.d)
+print (root.d)
 ```
 
 Let's break this down:
@@ -171,14 +167,14 @@ Let's break this down:
 - Before deciding to raise an exception, we see if member a is in our data dictionary.  If it is, we return the data
 pointed to by a.  If it's not, we raise a ValueError just like what would be raised if we had not overridden \__get__
 in the first place.
-- Same goes with \__setitem__.  Only here, we have to take some care not to trigger a recursive loop.  If the member
-being set is an actual defined member of the class, then we need to call super().\__setitem__().  The only thing we are
-trying to override is access of the data dictionary member, all other member invocations we can pass along to the super.
-And, as a little exercise, you can see what happens if you do try to set pre-defined data members within \__setitem__.
-It ends up being a recursive loop that eventually blows the callstack.
+- Same goes with \__setitem__. If the member being set is an actual defined member of the class, then we need to call
+super().\__setitem__().  The only thing we are trying to override is access of the data dictionary member, all other
+member invocations we can pass along to the super.  And, as a little exercise, you can see what happens if you do try to
+set pre-defined data members within \__setitem__.  It ends up being a recursive loop that eventually blows the
+callstack.
 
 
-So, lets change the XmlNode class slightly and make the point of the post obvious.  There are some  deficiencies in the
+So, lets change the XmlNode class slightly and make the point of the post obvious.  There are some deficiencies in the
 code below which will be fixed later in the post.  Ignore them for now.
 
 ```python
@@ -248,8 +244,9 @@ class XmlNode:
 from xmlnode import XmlNode
 
 root = XmlNode('/path/to/ConfigFile.xml')
-# Node acces returns a list, and .xsd file guarantees there must be one
-# and only one, so safe to access index 0.
+
+# Node access returns a list, and .xsd file guarantees there must be one
+# and only one.  So it's safe to access index 0.
 parameterNode = root.Parameters[0]
 
 # direct attribute access
