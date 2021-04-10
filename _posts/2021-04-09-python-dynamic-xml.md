@@ -30,6 +30,9 @@ Lets look at very simple example
 
 ```xml
 <!-- ConfigFile.xsd -->
+<!--
+    Describe the allowable structure of <ConfigFile> and <Parameters>
+-->
 ```
 
 ```python
