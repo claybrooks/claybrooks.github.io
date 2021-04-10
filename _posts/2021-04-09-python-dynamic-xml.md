@@ -83,14 +83,14 @@ initialize_server(config.timeout)
 
 Lets breakdown what's going on
 - There exists "ConfigFile.xml" which describes parameters to control our script
-- There exists "ConfigFile.xsd" which describes the allowed format of the configuration file
+- There exists "ConfigFile.xsd" which describes the allowed format of the "ConfigFile.xml"
 - There exists "ConfigFile.py" which has a class that gives the rest of our code easy access to config file data
 
 Here's what I hate about this pattern
 - If a property of the .xsd needs to be changed for any reason, changes to the source code are almost always needed
 - It may not be obvious, but we are defining the definition of the "ConfigFile.xml" in two locations: "ConfigFile.xsd" and
-"ConfigFile.py".  They are tightly coupled because the both reflect the actual definition of "ConfigFile.xml", just in
-a different file format.
+"ConfigFile.py".  They are tightly coupled because they both reflect the actual definition of "ConfigFile.xml" albeit in
+different file formats.
 
 You can imagine how tedious this becomes on codebases that have hundreds of different XML file types and the coding standards
 state we must (MUST) create API's to read/write data from/to our configuration files.  Thankfully, there are some tools
@@ -119,7 +119,7 @@ when we write the code.
 Let's look at a very basic example of this concept
 
 ```python
-class LookupDict:
+class XmlData:
     def __init__(self):
         self.data = {
             'a': 1,
@@ -138,12 +138,12 @@ class LookupDict:
 
     # this always gets called when a member is beign set, whether it exists or not.
     def __setitem__(self, key, value):
-        # we can fall into a recursive trap here.
-        # defer to our super if it's in __all__
-        # it's existence in all implies it's a valid member of the class
-        # we have to check for 'data' specifically for the case the first time data is set,
-        # as it won't be in all.  In general, this extra list contains all hand-defined
-        # members of a class
+        # We can fall into a recursive trap here.
+        # Defer to our super if it's in __all__ as
+        # it's existence in __all__ implies it's a valid member of the class.
+        # We have to check for 'data' specifically for the edge case that this is the
+        # first time data is set as it won't be in __all__.  In general, this
+        # extra list contains all hand-defined members of a class
         if key in self.__all__ or key in ['data']:
             super().__setitem__(key, value)
 
