@@ -211,10 +211,10 @@ class XmlNode:
             key = key.replace(attr_prefix, '')
 
             # invalid key
-            if key not in attributes:
+            if key not in self.attributes:
                 raise AttributeError(key)
 
-             return self.attributes[key]
+            return self.attributes[key]
 
         # caller is trying to get a node
         else:
@@ -226,7 +226,7 @@ class XmlNode:
 
     def __setattr__(self, key, value):
         # catch valid members here and defer to super
-        if key in self.__all__ or
+        if key in self.__all__ or \
             key in ['nodes', 'attributes', 'text', 'tag']:
             super().__setattr__(key, value)
             return
