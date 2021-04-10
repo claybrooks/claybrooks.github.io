@@ -182,6 +182,8 @@ So, lets change the XmlNode class slightly and make the point of the post obviou
 code below which will be fixed later in the post.  Ignore them for now.
 
 ```python
+# xmlnode.py
+
 class XmlNode:
     def __init__(self, path_to_xml_file, attr_prefix='attr_'):
         # child nodes
@@ -243,7 +245,7 @@ class XmlNode:
 ```
 ```python
 # main.py
-from XmlNode import XmlNode
+from xmlnode import XmlNode
 
 root = XmlNode('/path/to/ConfigFile.xml')
 # Node acces returns a list, and .xsd file guarantees there must be one
