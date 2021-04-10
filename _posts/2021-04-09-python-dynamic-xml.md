@@ -94,9 +94,9 @@ You can imagine how tedious this becomes on codebases that have hundreds of diff
 standards at work state API's must (MUST) be created to read from and write to our configuration files.  Thankfully,
 there are some tools out there to help with this problem.  Here are a few:
 
-- [generateDS] (http://www.davekuhlman.org/generateDS.html)
+- [generateDS](http://www.davekuhlman.org/generateDS.html)
   - Autogenerates code from schema definition files
-- [PyXB] (http://pyxb.sourceforge.net/)
+- [PyXB](http://pyxb.sourceforge.net/)
   - Autogenerates code from schema definition files
 
 These two tools are outstanding and are most likely good enough for the majority of use cases.  The code autogeneration
