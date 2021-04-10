@@ -91,17 +91,14 @@ defaults:
 
 # Site Author
 author:
-  name: Clay Brooks
+  name:
   picture:
-  email: clay_brooks@outlook.com
+  email:
   twitter:
   links:
-    - title: Github
-      url: https://www.github.com/claybrooks
-      icon: assets/logos/github.png
-    - title: Stackoverflow
-      url: https://stackoverflow.com/users/6353786/clay-brooks
-      icon: assets/logos/stackoverflow.png
+    - title:
+      url:
+      icon:
 
 # Footer Links
 footer_links:
