@@ -4,6 +4,7 @@ categories:
   - Python
 tags:
   - python
+  - dynamic
   - xml
 
 last_modified_at: 2021-04-10
