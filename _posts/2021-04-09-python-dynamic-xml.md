@@ -289,3 +289,7 @@ One deficiency with the implementation is that it does not consider the .xsd doc
 assumption is the xml file has already been validated with an offline tool and therefore can be accessed without
 concern of accessing erroneous data.  The only trouble can arise with optional attributes and nodes which the library
 does not consider.
+
+{% if page.comments == true %}
+  {% include comments.html %}
+{% endif %}
