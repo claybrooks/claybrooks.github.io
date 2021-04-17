@@ -37,7 +37,7 @@ absolutely enormous library of python code to the absolutely enormous Java API t
 So what were we to do?  After a while, the phrase "bite the bullet" was slowly becoming the only option.  That is, until
 I noticed something rather peculiar about the GUI application that came packaged with the api: It took almost zero-time
 to display environmental information.  Recall that this database is in the gigabyte range, loading gigabytes of data is
-not an immediately finishable task (atleast on my hardware at the time), especially when heavy processingo of that data
+not an immediately finishable task (atleast on my hardware at the time), especially when heavy processing of that data
 is involved (the format of their database did not translate 1:1 to how it was laid out in physical memory).  During my
 initial efforts to go through their "Hello World" example, I noticed how slow the API took to load, usually around a
 full minute.  So, how in the world can their API take nearly a minute to initialize yet their UI is displaying data
@@ -263,7 +263,7 @@ the data
 
 And the cons:
 
-- No intellisense support in the IDE since the functions can't be statically analyzed
+- No IntelliSense support in the IDE since the functions can't be statically analyzed
 - Slightly tied to the API author providing the .json data
 
 Well, there you have it.  A minimum working example of a runtime injectable python API!
