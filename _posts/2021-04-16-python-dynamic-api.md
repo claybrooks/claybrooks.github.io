@@ -30,9 +30,9 @@ switch to it
 The main problems of taking on this new data source:
 
 - The API was staggering to say the least.  The spin up time to get this integrated into our systems was non-negligible.
-- The complete lack of an API other than Java was dissapointing.  On top of that, management didn't want to pay to write
-java programs to process data nor did they want to go through the headache of bridging the gap between our absolutely
-enormous library of python code to the absolutely enormous Java API that we now had access to.
+- The lack of support for other languages besides Java was dissapointing.  On top of that, management didn't want to pay
+to write java programs to process data nor did they want to go through the headache of bridging the gap between our
+absolutely enormous library of python code to the absolutely enormous Java API that we now had access to.
 
 So what were we to do?  After a while, the phrase "bite the bullet" was slowly becoming the only option.  That is, until
 I noticed something rather peculiar about the GUI application that came packaged with the api: It took almost zero-time
