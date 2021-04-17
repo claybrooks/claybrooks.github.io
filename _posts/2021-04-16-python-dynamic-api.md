@@ -67,11 +67,12 @@ rather sizeable .json file, a few hundred megabytes, and it looked something lik
 
 This is a watered down version of what I saw, but the main takeaway is they dumped function call names and the
 associated return values, almost like one big sweep of some nasty java reflection.  So, it hit me: they aren't using
-their API at all to display information in the GUI.  They pre-processed to a smaller form and are consuming the .json
-file to populate the display.  For them to disregard their own API spoke volumes about it's (un)useability.
+their API at all to display information in the GUI.  The json data has all of the function calls per object type and the
+associated return value.  They pre-processed to a smaller form and are consuming the .json file to populate the display.
+For them to disregard their own API spoke volumes about it's (un)useability.
 
 So, I eventually thought back on the work I had done with [DynamicXml](https://claybrooks.github.io/python/2021/04/09/python-dynamic-xml.html),
-and wondered if something similar could be done here.  Let's look at a toy example.
+and wondered if something similar could be done here.  Let's look at a simple example.
 
 ```python
 #main.py
@@ -264,7 +265,7 @@ the data
 And the cons:
 
 - No IntelliSense support in the IDE since the functions can't be statically analyzed
-- Slightly tied to the API author providing the .json data
+- Coupled to the API author providing the .json data
 
 Well, there you have it.  A minimum working example of a runtime injectable python API!
 
