@@ -237,6 +237,16 @@ for beam_id in env.ANTENNA_ID_1.getBeams():
     print (env.beams[beam_id].getAngle())
 ```
 
+And the output is:
+
+```
+50
+['BEAM_ID_1', 'BEAM_ID_3']
+ANTENNA_TYPE_1
+50
+52
+```
+
 First there is the ```Injectable``` class that is nothing but a placeholder to store the injected attributes and
 functions.  Next, ```Environment``` is created and the input .json file is loaded.  A map of object types to objects are
 created.  Each object is nothing more than a set of injected function attributes that return the value from the original
