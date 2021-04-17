@@ -98,22 +98,36 @@ defaults:
 # Site Author
 author:
   name: Clay Brooks
-  picture:
+  picture: images/profile.png
   email: clay_brooks@outlook.com
-  twitter:
   links:
+    - title: Twitter
+      url: https://twitter.com/_claybrooks
+      icon: fab fa-twitter-square
     - title: GitHub
       url: https://github.com/claybrooks
       icon: fab fa-github-square
+    - title: StackOverflow
+      url: https://stackoverflow.com/users/6353786/clay-brooks
+      icon: fab fa-stack-overflow
+    - title: LinkedIn
+      url: https://linkedin.com/in/claymbrooks
+      icon: fab fa-linkedin
 
 # Footer Links
 footer_links:
+  - title: Twitter
+    url: https://twitter.com/_claybrooks
+    icon: fab fa-twitter-square
   - title: GitHub
     url: https://github.com/claybrooks
     icon: fab fa-github-square
-  - title: Feed
-    url: atom.xml
-    icon: fas fa-rss-square
+  - title: StackOverflow
+    url: https://stackoverflow.com/users/6353786/clay-brooks
+    icon: fab fa-stack-overflow
+  - title: LinkedIn
+    url: https://linkedin.com/in/claymbrooks
+    icon: fab fa-linkedin
 
 # The URL for the staticman API bridge endpoint
 # You will want to modify some of the values:
