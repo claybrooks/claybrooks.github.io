@@ -17,8 +17,7 @@ situation at a high level:
 - The database is rather large, in the gigabyte range
 - The data in this database is updated quarterly (more like semi-annually) based on field research
 - The database is read-only via the provided Java API
-- My team relies heavily on third-party environmental data and our consumption scripts are written in python and only
-python
+- My team relies heavily on third-party environmental data and our consumption scripts are written only in python
 
 The reasoning behind taking on this new source of data:
 
