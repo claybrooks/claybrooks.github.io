@@ -267,7 +267,7 @@ And the cons:
 - No intellisense support in the IDE since the functions can't be statically analyzed
 - Slightly tied to the API author providing the .json data
 
-Well, there you have it.  A minimum working example of an runtime injectable python API!
+Well, there you have it.  A minimum working example of a runtime injectable python API!
 
 {% if page.comments == true %}
   {% include comments.html %}
